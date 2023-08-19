@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { Spacer, YStack } from 'tamagui'
+import { Spacer } from 'tamagui'
 
 import { getCompilationExamples } from '../lib/getCompilationExamples'
 import { HeroContainer } from './HeroContainer'
@@ -13,7 +13,7 @@ export function TamaguiExamplesCode() {
   try {
     const examples = useContext(TamaguiExamples)
     return (
-      <HeroContainer noScroll noPad>
+      <HeroContainer noScroll>
         <Spacer />
         <HeroExampleCode onlyDemo examples={examples?.compilationExamples} />
         <Spacer />

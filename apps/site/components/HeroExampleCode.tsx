@@ -1,7 +1,7 @@
 import { ThemeTint, useTint } from '@tamagui/logo'
 import { FastForward } from '@tamagui/lucide-icons'
 import { memo, useState } from 'react'
-import { Button, Paragraph, ScrollView, Spacer, XGroup, XStack, YStack } from 'tamagui'
+import { Button, Paragraph, ScrollView, XGroup, XStack, YStack } from 'tamagui'
 
 import { CodeDemoPreParsed } from './CodeDemoPreParsed'
 import { ContainerLarge } from './Container'
@@ -32,8 +32,6 @@ export const HeroExampleCode = memo(
               </HomeH3>
             </YStack>
           )}
-
-          <Spacer />
 
           <ThemeTint>
             <XGroup
@@ -159,7 +157,7 @@ const CodeExamples = memo(({ examples, title }: any) => {
           mb="$-2"
           maw="100%"
         >
-          <XStack px="$4" fs={0} space>
+          <XStack px="$4" pb="$4" fs={0} space>
             <XGroup size="$2" bordered>
               <XGroup.Item>
                 <Button disabled size="$2" fontSize="$4" px="$4">
@@ -185,7 +183,6 @@ const CodeExamples = memo(({ examples, title }: any) => {
           </XStack>
         </ScrollView>
       </>
-      <Spacer />
       <XStack maxWidth="100%" f={1}>
         <YStack f={1} maxWidth="100%" opacity={0.9} hoverStyle={{ opacity: 1 }}>
           <CodeDemoPreParsed
