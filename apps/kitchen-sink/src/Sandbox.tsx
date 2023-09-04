@@ -1,132 +1,32 @@
 // import './wdyr'
 
-import { CheckboxWithLabel, SwitchWithLabel } from '@tamagui/demos'
-import { forwardRef, useState } from 'react'
-import { Platform } from 'react-native'
 import {
-  Button,
-  H3,
+  H1,
   Paragraph,
   SizableText,
-  Square,
-  TamaguiElement,
   Text,
-  Theme,
-  ThemeName,
+  XStack,
   YStack,
   styled,
-  withStaticProperties,
+  useMedia,
 } from 'tamagui'
-import { LinearGradient } from 'tamagui/linear-gradient'
-
-export const MyButton = styled(Button, {
-  name: 'MyButton',
-
-  variants: {
-    test: {
-      true: {
-        backgroundColor: 'yellow',
-        pressStyle: {
-          backgroundColor: 'red',
-        },
-      },
-    },
-  } as const,
-})
-
-const QuickPreviewSection = () => {
-  return (
-    <YStack f={1}>
-      <YStack
-        bw={1}
-        boc="$borderColor"
-        bc="$backgroundStrong"
-        f={1}
-        br="$6"
-        p="$4"
-        gap="$2"
-      >
-        <H3>Preview</H3>
-        <Paragraph>
-          Occaecat tempor2 et et nostrud laboris eiusmod aliquip et est irure in
-          adipisicing.
-        </Paragraph>
-
-        <SwitchWithLabel size="$3" />
-        <CheckboxWithLabel defaultChecked size="$4" />
-
-        <Button>Hello</Button>
-      </YStack>
-    </YStack>
-  )
-}
-
-export const LinkButton = withStaticProperties(
-  forwardRef(function LinkButton(
-    { ...props }: Omit<React.ComponentProps<typeof Button>, 'href' | 'target'>,
-    ref: React.Ref<TamaguiElement>
-  ) {
-    return (
-      <Button
-        ref={ref}
-        {...props}
-        {...(props.disabled && Platform.OS === 'web' && { href: undefined })}
-        tag="a"
-      />
-    )
-  }),
-  {
-    Text: Button.Text,
-    Icon: Button.Icon,
-  }
-)
-
-const theme = 'light'
-
-// @ts-ignore
-createTamagui({
-  containerNames: ['goated'],
-})
 
 export const Sandbox = () => {
   return (
     <>
-      {/* @ts-ignore */}
-      <YStack group="goated" bc="red" gap="$2">
-        {/* @ts-ignore */}
-        <Square
-          size={20}
-          bc="white"
-          $group-goated={{
-            size: 100,
-          }}
-          $group-goated-hovered={{
-            size: 100,
-          }}
+      <XStack justifyContent="center" alignItems="center" flexDirection="column">
+        <Paragraph $sm={{ paddingHorizontal: 6 }}>
+          useMedia().gtSm: {useMedia().gtSm ? 'TRUE' : 'FALSE'}. if it works the rectangle
+          will be red:
+        </Paragraph>
+        <YStack
+          bc="blue"
+          $sm={{ backgroundColor: 'yellow' }}
+          $gtSm={{ backgroundColor: 'red' }}
+          width={100}
+          height={100}
         />
-      </YStack>
-
-      <YStack tag="a" w={100} h={100} bc="red" />
-
-      <LinkButton>hlleo</LinkButton>
-
-      <LinearGradient
-        width={200}
-        height={100}
-        colors={['$blue10Dark', '$testsomethingdifferent']}
-      />
-
-      <Theme name={theme}>
-        <Theme name="red">
-          <QuickPreviewSection />
-        </Theme>
-      </Theme>
-      {/* <TextInput theme={theme} /> */}
-      {/* <Button onPress={() => setTheme('red')}>asdsad</Button> */}
-
-      {/* TODO REALLY NEED TO TEST THIS SORT OF STUFF ON NATIVE */}
-      {/* <MyButton test>ok</MyButton> */}
-
+      </XStack>
       {/* <DrawListRow debug="verbose">
         <Square size={100} bc="red" />
       </DrawListRow> */}
@@ -167,11 +67,11 @@ export const Sandbox = () => {
       >
         <span className="all ease-in ms250 rainbow clip-text">Write less,</span>
         <br />
-        runs&nbsp;faster
+        runs faster
       </H1> */}
 
       {/* <Subtitle debug="verbose">hello</Subtitle> */}
-      {/* <Paragraph size="$15" pos="absolute" rotate="-10deg" ta="center" ff="$silkscreen">
+      {/* <Paragraph size="$15" pos="relative" rotate="-10deg" ta="center" ff="$silkscreen">
         WATCH THE VIDEO
       </Paragraph> */}
 
